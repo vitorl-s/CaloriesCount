@@ -11,10 +11,13 @@ export default class CardComponent extends Component<Props> {
                     <View style={styles.insideContainer}>
                         <CircleImage/>
                         <View style={{ flexDirection: 'column',alignSelf: 'center'}}>
-                            <Text style={styles.text}> {this.props.exercise}</Text>
+                            <Text style={styles.text}> {this.props.exercise.toUpperCase()}</Text>
                             <View style={{ flexDirection: 'row'}}> 
+                                <Image source={require('../../img/ic_bike.png')} style = {{marginLeft:35}}/>
                                 <Text style = {styles.infoText}> {this.props.calories + ' Kcal'} </Text>
+                                <Image source={require('../../img/ic_time.png')} style = {{ marginLeft: 20 }}/>
                                 <Text style = {styles.infoText}> {this.props.time} </Text>
+                                <Image source={require('../../img/ic_balance.png')} style={{ marginLeft: 20, }} />
                                 <Text style = {styles.infoText}> {this.props.weight}</Text>
                             </View>
                         </View>
@@ -44,14 +47,18 @@ const styles = StyleSheet.create({
         alignSelf: 'flex-start',
         marginLeft: 30,
         color:'#FEFFFF',
-        marginBottom: 20,
+        marginBottom: 5,
+        fontSize: 20,
+        fontFamily: 'Montserrat-SemiBold',
     },
     insideContainer:{
         alignItems: 'flex-start', 
         flexDirection: 'row',
     },
     infoText:{
-        marginLeft: 25,
         color: '#FEFFFF',
+        fontFamily: 'Montserrat-SemiBold',
+        fontSize: 9,
+        marginBottom:0
     }
 });
