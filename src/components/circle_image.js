@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     },
     profileImg: {
         resizeMode: 'contain',
-        height: 150,
+        height: 130,
         width: 130,
         borderRadius: 1,
         marginBottom: 30

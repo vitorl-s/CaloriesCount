@@ -27,8 +27,8 @@ export default class Home extends Component<Props> {
                             circle={<CircleImage path={imgPath}/>}
                             exercise={item.name}
                             calories={item.calories}
-                            weight={item.weight + ' Kg'}
-                            time={item.time}/>
+                            weight={' ' +item.weight + ' Kg'}
+                            time={' '+item.time}/>
                     </View>
                 )}))
     }
