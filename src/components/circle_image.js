@@ -6,8 +6,12 @@ export default class CircleImage extends React.Component{
     render() {
         return (
             <View style={styles.container}>
-                <TouchableHighlight style={styles.profileImgContainer}>
-                    <Image source={this.props.path} style={styles.profileImg} />
+                <TouchableHighlight 
+                style={this.props.containerStyle ? this.props.containerStyle
+                    :styles.profileImgContainer}>
+                    <Image source={this.props.path} 
+                    style={this.props.style? this.props.style : 
+                    styles.profileImg}/>
                 </TouchableHighlight>
             </View>
         );
@@ -18,7 +22,6 @@ const styles = StyleSheet.create({
     container: {
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#323C47',
     },
     profileImg: {
         resizeMode: 'contain',

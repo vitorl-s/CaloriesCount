@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, ScrollView } from 'react-native';
+import { StyleSheet, View, ScrollView, Image } from 'react-native';
 import CardComponent from '../components/Card';
 import CircleImage from '../components/Circle_image';
+import { Card } from "react-native-elements";
 
 export default class Home extends React.Component{
     renderMultipleCard(){
@@ -32,22 +33,35 @@ export default class Home extends React.Component{
                 )}))
     }
 
-    renderMultipleCirlce() {
+    renderMultipleCircle() {
         const json = require('../../data.json');
         var array = json.filters;
         var imgPath;
         return (array.map((item, index) => {
             if (item.name === 'Yoga') {
-                imgPath = require('../../img/yoga.png')
-            } else if (item.name === 'Musculação') {
-                imgPath = require('../../img/gym.png')
-            } else if (item.name === 'Bicicleta') {
-                imgPath = require('../../img/cycling.png')
-            } else imgPath = require('../../img/running.png')
-            return (
-                <View key={index} style={{ flex: 1, marginHorizontal: 10, marginVertical: 15 }}>
-                    <Text>oi</Text>
-                </View>
+                imgPath = require('../../img/ic_yoga.png')
+            } else if (item.name === 'Upper Body') {
+                imgPath = require('../../img/ic_upper_body.png')
+            } else if (item.name === 'Lower Body') {
+                imgPath = require('../../img/ic_lower_body.png')
+            } else imgPath = require('../../img/ic_dance.png')
+            return (<View key={index} style = {{marginLeft: 10}}>
+                            <CircleImage path={imgPath} style={{
+                                resizeMode: 'contain',
+                                height: 35,
+                                width: 35,
+                                borderRadius: 1,
+                                marginBottom: 5}}
+                                containerStyle={{
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                    height: 60,
+                                    width: 60,
+                                    borderRadius:50,
+                                    backgroundColor: 'red',
+                                    borderColor: '#262F38',
+                                    borderWidth: 1 }}/>
+                        </View>
             )
         }))
     }
@@ -55,6 +69,11 @@ export default class Home extends React.Component{
         render() {
             return (
             <ScrollView style= {styles.container}>
+                    <View style={{ flex: 1, marginHorizontal: 10, marginVertical: 15}}>
+                    <Card wrapperStyle={{flexDirection:'row',height:60}} containerStyle = {styles.card}>
+                        {this.renderMultipleCircle()}   
+                    </Card>
+                </View>
                 {this.renderMultipleCard()}
             </ScrollView>
         );
