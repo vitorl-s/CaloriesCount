@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableHighlight, Image,Button } from 'react-native';
 import { Card } from "react-native-elements";
-import CircleImage from './circle_image';
+import CircleImage from './Circle_image';
 
 export default class CardComponent extends Component<Props> {
     render() {
@@ -11,11 +11,11 @@ export default class CardComponent extends Component<Props> {
                     <View style={styles.insideContainer}>
                         <CircleImage/>
                         <View style={{ flexDirection: 'column',alignSelf: 'center'}}>
-                            <Text style={styles.text}> testando</Text>
+                            <Text style={styles.text}> {this.props.exercise}</Text>
                             <View style={{ flexDirection: 'row'}}> 
-                                <Text style = {styles.infoText}> teste</Text>
-                                <Text style={styles.infoText}> teste 2</Text>
-                                <Text style={styles.infoText}> teste 3</Text>
+                                <Text style = {styles.infoText}> {this.props.calories + ' Kcal'} </Text>
+                                <Text style = {styles.infoText}> {this.props.time} </Text>
+                                <Text style = {styles.infoText}> {this.props.weight}</Text>
                             </View>
                         </View>
                     </View>
@@ -35,9 +35,10 @@ const styles = StyleSheet.create({
         flexDirection: 'row', 
         justifyContent: 'flex-start',
         backgroundColor: '#323C47',
-        marginTop: 50,
+        marginTop: 10,
         borderWidth:0,
-        borderRadius: 12,
+        borderRadius: 13,
+        height:115
     },
     text:{
         alignSelf: 'flex-start',
@@ -47,10 +48,10 @@ const styles = StyleSheet.create({
     },
     insideContainer:{
         alignItems: 'flex-start', 
-        flexDirection: 'row'
+        flexDirection: 'row',
     },
     infoText:{
-        marginLeft: 30,
+        marginLeft: 25,
         color: '#FEFFFF',
     }
 });

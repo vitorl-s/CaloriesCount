@@ -7,7 +7,7 @@ export default class CircleImage extends Component<Props> {
         return (
             <View style={styles.container}>
                 <TouchableHighlight style={styles.profileImgContainer}>
-                    <Image source={require('../../images/gym.png')} style={styles.profileImg} />
+                    <Image source={require('../../img/gym.png')} style={styles.profileImg} />
                 </TouchableHighlight>
             </View>
         );
@@ -22,16 +22,16 @@ const styles = StyleSheet.create({
     },
     profileImg: {
         resizeMode: 'contain',
-        height: 170,
-        width: 150,
+        height: 150,
+        width: 130,
         borderRadius: 1,
-        marginBottom: 40
+        marginBottom: 30
     },
     profileImgContainer: {
         justifyContent: 'center',
         alignItems: 'center',
-        height: 100,
-        width: 105,
+        height: 80,
+        width: 85,
         borderRadius: 100,
         backgroundColor: '#262F38', 
         borderColor: '#262F38', 
