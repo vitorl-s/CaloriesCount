@@ -30,6 +30,10 @@ build/
 local.properties
 *.iml
 
+img/
+*.png
+*
+
 # node.js
 #
 node_modules/

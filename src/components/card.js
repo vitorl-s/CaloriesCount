@@ -9,7 +9,7 @@ export default class CardComponent extends Component<Props> {
             <View style={styles.container}>
                 <Card containerStyle = {styles.card}>
                     <View style={styles.insideContainer}>
-                        <CircleImage/>
+                        {this.props.circle}
                         <View style={{ flexDirection: 'column',alignSelf: 'center'}}>
                             <Text style={styles.text}> {this.props.exercise.toUpperCase()}</Text>
                             <View style={{ flexDirection: 'row'}}> 
@@ -54,6 +54,7 @@ const styles = StyleSheet.create({
     insideContainer:{
         alignItems: 'flex-start', 
         flexDirection: 'row',
+        marginLeft: 10
     },
     infoText:{
         color: '#FEFFFF',

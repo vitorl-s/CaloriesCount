@@ -7,7 +7,7 @@ export default class CircleImage extends Component<Props> {
         return (
             <View style={styles.container}>
                 <TouchableHighlight style={styles.profileImgContainer}>
-                    <Image source={require('../../img/gym.png')} style={styles.profileImg} />
+                    <Image source={this.props.path} style={styles.profileImg} />
                 </TouchableHighlight>
             </View>
         );
