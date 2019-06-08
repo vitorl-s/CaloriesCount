@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableHighlight, Image } from 'react-native';
 import { Avatar } from "react-native-elements";
 
-export default class CircleImage extends Component<Props> {
+export default class CircleImage extends React.Component{
     render() {
         return (
             <View style={styles.container}>

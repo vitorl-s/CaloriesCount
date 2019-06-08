@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TouchableHighlight, Image } from 'react-native';
-import { Avatar } from "react-native-elements";
+import { StyleSheet, View, ScrollView } from 'react-native';
 import CardComponent from '../components/Card';
 import CircleImage from '../components/Circle_image';
 
-export default class Home extends Component<Props> {
-
+export default class Home extends React.Component{
     renderMultipleCard(){
         const json = require('../../data.json');
         var array = json.exercices;
@@ -22,22 +20,43 @@ export default class Home extends Component<Props> {
                 imgPath = require('../../img/cycling.png')
             } else imgPath = require('../../img/running.png')
                 return(
-                    <View key ={index} style ={{flex:1,marginHorizontal:10,marginVertical:30}}>
+                    <View key ={index} style ={{flex:1,marginHorizontal:10,marginVertical:15}}>
                         <CardComponent
                             circle={<CircleImage path={imgPath}/>}
                             exercise={item.name}
                             calories={item.calories}
                             weight={' ' +item.weight + ' Kg'}
-                            time={' '+item.time}/>
+                            time={' ' + item.time} 
+                            buttonColor={item.when}/>
                     </View>
                 )}))
+    }
+
+    renderMultipleCirlce() {
+        const json = require('../../data.json');
+        var array = json.filters;
+        var imgPath;
+        return (array.map((item, index) => {
+            if (item.name === 'Yoga') {
+                imgPath = require('../../img/yoga.png')
+            } else if (item.name === 'Musculação') {
+                imgPath = require('../../img/gym.png')
+            } else if (item.name === 'Bicicleta') {
+                imgPath = require('../../img/cycling.png')
+            } else imgPath = require('../../img/running.png')
+            return (
+                <View key={index} style={{ flex: 1, marginHorizontal: 10, marginVertical: 15 }}>
+                    <Text>oi</Text>
+                </View>
+            )
+        }))
     }
         
         render() {
             return (
-            <View style= {styles.container}>
+            <ScrollView style= {styles.container}>
                 {this.renderMultipleCard()}
-            </View>
+            </ScrollView>
         );
     }
 }

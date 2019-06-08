@@ -1,9 +1,22 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableHighlight, Image,Button, TouchableOpacity } from 'react-native';
 import { Card } from "react-native-elements";
-import CircleImage from './Circle_image';
 
-export default class CardComponent extends Component<Props> {
+
+export default class CardComponent extends React.Component{
+
+    changeTodayStyle(props){
+        const color = props === 'today' ? { backgroundColor: '#FD3C29' }
+            : { backgroundColor: '#323C47', borderWidth: 1, borderColor: '#515962' }
+        return color;
+    }
+
+    changeYesterdayStyle(props) {
+        const color = props === 'yesterday' ? { backgroundColor: '#19B996', marginLeft: 10, width: 65 }
+            : { backgroundColor: '#323C47', marginLeft: 10, borderWidth: 1, borderColor: '#515962', width: 65 }
+        return color;
+    }
+
     render() {
         return (
             <View style={styles.container}>
@@ -21,10 +34,10 @@ export default class CardComponent extends Component<Props> {
                                 <Text style = {styles.infoText}> {this.props.weight}</Text>
                             </View>
                             <View style={{ flexDirection: 'row', marginLeft:35, marginTop: 10}}>
-                                <TouchableOpacity style={[styles.round, styles.red]}>
+                                <TouchableOpacity style={[styles.default,this.changeTodayStyle(this.props.buttonColor)]}>
                                     <Text style={styles.buttonText}> HOJE</Text>
                                 </TouchableOpacity>
-                                <TouchableOpacity style={[styles.round, styles.green]}>
+                                <TouchableOpacity style={[styles.default,this.changeYesterdayStyle(this.props.buttonColor)]}>
                                     <Text style={styles.buttonText}> ONTEM</Text>
                                 </TouchableOpacity>
                             </View> 
@@ -69,20 +82,12 @@ const styles = StyleSheet.create({
         fontFamily: 'Montserrat-SemiBold',
         fontSize: 9,
     },
-    round: {
+    default: {
         justifyContent: 'center',
         alignItems: 'center',
-        width: 55,
+        width: 50,
         height: 13,
-        borderRadius: 25
-    },
-    red: {
-        backgroundColor: '#FD3C29',
-        zIndex: 2
-    },
-    green: {
-        backgroundColor: '#19B996',
-        marginLeft: 10
+        borderRadius: 25,
     },
     buttonText: {
         color: '#FEFFFF',
