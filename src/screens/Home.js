@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, View, ScrollView, Image } from 'react-native';
 import CardComponent from '../components/Card';
 import CircleImage from '../components/Circle_image';
-import { Card } from "react-native-elements";
+import { Card, Header,Divider } from "react-native-elements";
 import LinearGradient from 'react-native-linear-gradient';
 
 export default class Home extends React.Component{
@@ -47,27 +47,12 @@ export default class Home extends React.Component{
                 imgPath = require('../../img/ic_lower_body.png')
             } else imgPath = require('../../img/ic_dance.png')
             return (
-                <View key={index} style = {{marginLeft: 10,borderRadius:120}}>
+            <View key={index} style = {{marginLeft: 10,borderRadius:120}}>
                 <View style = {{borderRadius:120}}>
-                        <LinearGradient colors={['#7F38F4', '#F22B48']} start={{ x: 0.3, y: 0.3 }} 
-                        style={{borderRadius:40,alignItems: 'center', justifyContent: 'center' }}
-                            end={{ x: 1, y: 1 }}>
-                            <CircleImage path={imgPath} style={{
-                                resizeMode: 'contain',
-                                height: 35,
-                                width: 35,
-                                borderRadius: 1,
-                                borderColor: 'red',
-                                marginBottom: 5}}
-                                containerStyle={{
-                                    justifyContent: 'center',
-                                    alignItems: 'center',
-                                    height: 60,
-                                    borderRadius: 1,
-                                    padding:0,
-                                    borderColor: 'red',
-                                    width: 60 }}/>
-
+                    <LinearGradient colors={['#7F38F4', '#F22B48']} start={{ x: 0.3, y: 0.3 }} 
+                    style={styles.linearGradientContainer} end={{ x: 1, y: 1 }}>            
+                        <CircleImage path={imgPath} style={styles.circleImage}
+                            containerStyle={styles.circleContainer}/>
                     </LinearGradient>
                 </View>
             </View>
@@ -78,6 +63,15 @@ export default class Home extends React.Component{
         render() {
             return (
             <ScrollView style= {styles.container}>
+                    <Header leftComponent={{ icon: 'menu-open', type: 'material-community', color: '#FEFFFF' }}
+                    centerComponent={{ text: 'MEU PERFIL', style: styles.headerText}}
+                    placement = {'center'}
+                    rightComponent={{ icon: 'settings', type: 'feather',color: '#FEFFFF' }}
+                    containerStyle={{ backgroundColor:'#232C34',flex:1,height:50,padding:35, borderBottomWidth:0}}
+                    />
+                    <View style={{alignSelf:'center'}}>
+                        <Divider style={{ backgroundColor: '#323C47', height:2.5, width: 350}} />
+                    </View>
                     <View style={{ flex: 1, marginHorizontal: 10, marginVertical: 15}}>
                     <Card wrapperStyle={{flexDirection:'row',height:60}} containerStyle = {styles.card}>
                         {this.renderMultipleCircle()}
@@ -103,18 +97,26 @@ const styles = StyleSheet.create({
         borderWidth: 0,
         borderRadius: 12,
     },
-    text: {
-        alignSelf: 'flex-start',
-        marginLeft: 25,
-        color: '#FEFFFF',
-        marginBottom: 20,
+    circleImage:{
+        resizeMode: 'contain',
+        height: 35,
+        width: 35,
+        marginBottom: 5
     },
-    insideContainer: {
-        alignItems: 'flex-start',
-        flexDirection: 'row'
+    circleContainer:{
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        height: 60,
+        width: 60
     },
-    infoText: {
-        marginLeft: 30,
+    linearGradientContainer:{
+        borderRadius: 40, 
+        alignItems: 'center', 
+        justifyContent: 'center'
+    },
+    headerText:{
         color: '#FEFFFF',
+        fontSize: 24,
+        fontFamily: 'Montserrat'
     }
 });
