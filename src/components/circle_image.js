@@ -27,7 +27,6 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
         height: 130,
         width: 130,
-        borderRadius: 1,
         marginBottom: 30
     },
     profileImgContainer: {
@@ -35,7 +34,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         height: 80,
         width: 85,
-        borderRadius: 100,
+        borderRadius: 40,
         backgroundColor: '#262F38', 
         borderColor: '#262F38', 
         borderWidth: 1 

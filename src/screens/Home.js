@@ -3,6 +3,7 @@ import { StyleSheet, View, ScrollView, Image } from 'react-native';
 import CardComponent from '../components/Card';
 import CircleImage from '../components/Circle_image';
 import { Card } from "react-native-elements";
+import LinearGradient from 'react-native-linear-gradient';
 
 export default class Home extends React.Component{
     renderMultipleCard(){
@@ -45,23 +46,31 @@ export default class Home extends React.Component{
             } else if (item.name === 'Lower Body') {
                 imgPath = require('../../img/ic_lower_body.png')
             } else imgPath = require('../../img/ic_dance.png')
-            return (<View key={index} style = {{marginLeft: 10}}>
+            return (
+                <View key={index} style = {{marginLeft: 10,borderRadius:120}}>
+                <View style = {{borderRadius:120}}>
+                        <LinearGradient colors={['#7F38F4', '#F22B48']} start={{ x: 0.3, y: 0.3 }} 
+                        style={{borderRadius:40,alignItems: 'center', justifyContent: 'center' }}
+                            end={{ x: 1, y: 1 }}>
                             <CircleImage path={imgPath} style={{
                                 resizeMode: 'contain',
                                 height: 35,
                                 width: 35,
                                 borderRadius: 1,
+                                borderColor: 'red',
                                 marginBottom: 5}}
                                 containerStyle={{
                                     justifyContent: 'center',
                                     alignItems: 'center',
                                     height: 60,
-                                    width: 60,
-                                    borderRadius:50,
-                                    backgroundColor: 'red',
-                                    borderColor: '#262F38',
-                                    borderWidth: 1 }}/>
-                        </View>
+                                    borderRadius: 1,
+                                    padding:0,
+                                    borderColor: 'red',
+                                    width: 60 }}/>
+
+                    </LinearGradient>
+                </View>
+            </View>
             )
         }))
     }
@@ -71,7 +80,7 @@ export default class Home extends React.Component{
             <ScrollView style= {styles.container}>
                     <View style={{ flex: 1, marginHorizontal: 10, marginVertical: 15}}>
                     <Card wrapperStyle={{flexDirection:'row',height:60}} containerStyle = {styles.card}>
-                        {this.renderMultipleCircle()}   
+                        {this.renderMultipleCircle()}
                     </Card>
                 </View>
                 {this.renderMultipleCard()}
