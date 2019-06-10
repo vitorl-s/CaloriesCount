@@ -6,7 +6,8 @@
 
 ### 2 - Go to project directory
 
-``` cd ./MdvopsTest ```
+``` cd ./MdvopsTest ``` <br>
+```npm install```
 
 ### 3 - Open emulator/simulator
 
