@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableHighlight, Image,Button, TouchableOpacity } from 'react-native';
-import { Card } from "react-native-elements";
+import { Card } from "../../Screens/HomeScreen/node_modules/react-native-elements";
 
 
 export default class CardComponent extends React.Component{

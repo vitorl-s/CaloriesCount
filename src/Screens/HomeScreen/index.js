@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, ScrollView, Image } from 'react-native';
-import CardComponent from '../components/Card';
+import {View, ScrollView} from 'react-native';
+import CardComponent from '../../components/Card';
 import CircleImage from '../components/Circle_image';
 import { Card, Header,Divider } from "react-native-elements";
 import LinearGradient from 'react-native-linear-gradient';
+import styles from './styles';
 
 export default class Home extends React.Component{
     renderMultipleCard(){
@@ -82,41 +83,3 @@ export default class Home extends React.Component{
         );
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#232C34',
-        flexDirection: 'column',
-    },
-    card: {
-        flexDirection: 'row',
-        justifyContent: 'flex-start',
-        backgroundColor: '#323C47',
-        marginTop: 10,
-        borderWidth: 0,
-        borderRadius: 12,
-    },
-    circleImage:{
-        resizeMode: 'contain',
-        height: 35,
-        width: 35,
-        marginBottom: 5
-    },
-    circleContainer:{
-        justifyContent: 'center', 
-        alignItems: 'center', 
-        height: 60,
-        width: 60
-    },
-    linearGradientContainer:{
-        borderRadius: 40, 
-        alignItems: 'center', 
-        justifyContent: 'center'
-    },
-    headerText:{
-        color: '#FEFFFF',
-        fontSize: 24,
-        fontFamily: 'Montserrat'
-    }
-});
