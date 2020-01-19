@@ -2,12 +2,12 @@
 
 ### 1 - Clone the project
 
-```git clone  "RepoName"```
+```git clone  "RepoURL"```
 
 ### 2 - Go to project directory
 
-``` cd ./MdvopsTest ``` <br>
-```npm install```
+``` cd ./CaloriesCount ``` <br>
+```yarn install```
 
 ### 3 - Open emulator/simulator
 
